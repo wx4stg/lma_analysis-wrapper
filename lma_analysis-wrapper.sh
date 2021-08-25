@@ -82,7 +82,8 @@ shift 6
 echo $@
 for time in "${output[@]}"
 do
-    $lma_analysis_path -d ${time:0:8} -t ${time:8:12} -s 600 $@ lma_analysis_input.tmp/L*{time:2:6}_${time:8:12}00.dat
+    echo ${time:8:12}
+    $lma_analysis_path -d ${time:0:8} -t ${time:8:12}00 -s 600 $@ lma_analysis_input.tmp/L*{time:2:6}_${time:8:12}00.dat
 done
 echo "Cleaning up..."
 rm -rf lma_analysis_input.tmp
